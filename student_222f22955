@@ -1,0 +1,20 @@
+def generate_dashboard_summary(student_grades):
+    total_score = 0
+    count = 0
+    for module, grade in student_grades.items():
+        total_score += grade
+        count += 1
+    if count > 0:
+        average = total_score / count
+        if average >= 80:
+            status = "Academic Star ⭐"
+        elif average >= 50:
+            status = "On Track ✅"
+        else:
+            status = "Needs Academic Support 🆘"
+    else:
+        average = 0
+        status = "No Data Available"
+    return {"Average": average, "Status": status}
+student_results = {"Programming": 85, "Database": 90, "English": 78}
+print(generate_dashboard_summary(student_results))
